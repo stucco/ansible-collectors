@@ -1,0 +1,11 @@
+---
+
+- name: download collectors repo
+  git: repo=https://github.com/stucco/collectors.git dest={{ stucco_collector_dir }}
+- name: build collectors
+  shell: ./maven-collectors-build.sh > /tmp/collectors-build.out chdir={{ stucco_collector_dir }} creates={{ stucco_collector_dir }}/target/scheduler.jar
+
+- name: copy scheduler supervisord config
+  template: src=supervisor/stucco-scheduler.conf dest=/etc/supervisor/conf.d/stucco-scheduler.conf
+- name: reload supervisord
+  shell: /usr/bin/supervisorctl reload

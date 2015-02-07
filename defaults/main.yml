@@ -1,0 +1,6 @@
+stucco_collector_dir: "{{ stucco_dir }}/collectors"
+
+# There are two modes:
+#  daemon: load and continue collecting
+#  once: load and exit
+stucco_collector_mode: daemon
