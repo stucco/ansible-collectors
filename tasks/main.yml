@@ -1,5 +1,8 @@
 ---
 
+- name: make sure rabbitmq-server is running
+  service: name=rabbitmq-server state=started
+
 - name: download collectors repo
   git: repo=https://github.com/stucco/collectors.git dest={{ stucco_collector_dir }}
 
