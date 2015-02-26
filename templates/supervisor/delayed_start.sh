@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sleep 10
+
 # number of times to retry connecting
 NUM_RETRIES=10
 
