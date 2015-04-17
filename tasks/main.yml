@@ -21,6 +21,7 @@
 
 - name: copy scheduler supervisord config
   template: src=supervisor/stucco-scheduler.conf dest=/etc/supervisor/conf.d/stucco-scheduler.conf
+  when: stucco_collector_mode == "daemon"
 
 - name: reload supervisord
   shell: /usr/bin/supervisorctl reload
